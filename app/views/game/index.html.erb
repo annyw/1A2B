@@ -1,0 +1,36 @@
+<% if @you_tried %>
+	<h1> You Win! </h1>
+	<img src="http://attach.azureedge.net/newsimages/2015/08/13/317431-XXL.jpg" width="500px">
+<% end %>
+
+<% if @input %>
+	<h1> You input <%= @input %></h1>
+<% end %>
+
+<form>
+  <input type="text" name="fname" maxlength="4" placeholder=" 請輸入四位不重複數字 "><br>
+  <input type="submit" value="輸入"><br>
+  <a href="/give-up">重來</a><br>
+  <%= @how_a %>
+  <%= @how_b %><br>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Try</th>
+      <th>How a</th>
+      <th>How b</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tries.each do |try| %>
+      <tr>
+        <td><%= try.try %></td>
+        <td><%= try.how_a %></td>
+        <td><%= try.how_b %></td
+      </tr>
+    <% end %>
+  </tbody>
+</table>
